@@ -14,16 +14,20 @@ UCLASS()
 class CPPTPS_API UEnemyAnim : public UAnimInstance
 {
 	GENERATED_BODY()
+public:
+	virtual void NativeBeginPlay() override;
 
 public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 		EEnemyState state;
+	UPROPERTY()
+		class AEnemy* enemy;
 
 	UFUNCTION()
-	void AnimNotify_DieEnd();
+		void AnimNotify_DieEnd();
 	UFUNCTION()
-	void AnimNotify_Attack();
+		void AnimNotify_Attack();
 };
 
 

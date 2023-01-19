@@ -39,49 +39,26 @@ public:
 		class UStaticMeshComponent* Sniper;
 
 	UPROPERTY(EditAnywhere)
-		TSubclassOf<class UUserWidget> Scope;
-	UPROPERTY()
-		class UUserWidget* ScopeUI;
+		class UPlayerMove* compPlayerMove;
 
 	UPROPERTY(EditAnywhere)
-		TSubclassOf<class UUserWidget> Common;
-	UPROPERTY()
-		class UUserWidget* CommonUI;
+		class UPlayerAttack* compPlayerAttack;
 
-	UPROPERTY(EditAnywhere)
-		TSubclassOf<class ABullet> BulletFactory;
+		float currHP;
+		float maxHP = 1;
+		float prevHP;
+		float bUpdateHP = false;
+		float ratioHP = 0;
 
-	UPROPERTY(EditAnywhere)
-		class UParticleSystem* Effect;
+		void ReceivDamage(float damage);
+		UPROPERTY(EditAnywhere)
+		TSubclassOf<class UMainUI> mainUIFactory;
+		UPROPERTY(EditAnywhere)
+		class UMainUI* mainUI;
 
-	UPROPERTY(EditAnywhere)
-		TSubclassOf<class UCameraShakeBase> cameraShake;
+		UPROPERTY()
+		TSubclassOf <class AMiniMap> miniFactory;
 
-public:
-	float X;
-	float Y;
-	float MouseX;
-	float MouseY;
-	float walkSpeed = 350;
-	float runSpeed = 1500;
-	bool bFire = false;
-	float currCamShakeTime = 0;
-	float camShakeTime = 0.5f;
-
-public:
-	void InputHorizontal(float value);
-	void InputVertical(float value);
-	void InputTurn(float value);
-	void InputLookUp(float value);
-	void InputJump();
-	void InputFire();
-	void ChangeWeapon(bool usesniper);
-	void InputRifle();
-	void InputSniper();
-	void InputCtrl();
-	void OutputCtrl();
-	void InputRun();
-	void MoveAction(float DeltaTime);
-	void RotateAction();
-	void CamShake();
+		UPROPERTY()
+		TSubclassOf<class UGameOverUI> gameOverUIFactory;
 };
