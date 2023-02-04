@@ -74,7 +74,7 @@ public:
 
 	void ReceiveDamaged();
 
-	float InitailHP = 1;
+	float InitailHP = 10;
 	float HP;
 
 	bool IsTargetTrace();
