@@ -9,7 +9,7 @@
 
 
 //상태 정의
-UENUM(BlueprintType)//블루프린트로 만들어 놓은것을 갖다 쓸때
+UENUM(BlueprintType)//만들어 놓은것을 블루트린트에서 쓰고싶을때
 enum class EEnemyState : uint8
 {
 	Idle,
