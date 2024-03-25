@@ -45,11 +45,11 @@ UPlayerAttack::UPlayerAttack()
 	}
 
 	//카메라 쉐이크를 넣어주자
-/*ConstructorHelpers::FClassFinder<UCameraShakeBase> tempShake(TEXT("Blueprint'/Game/Blueprints/BP_CamShake.BP_CamShake_C'"));
+ConstructorHelpers::FClassFinder<UCameraShakeBase> tempShake(TEXT("Blueprint'/Game/Blueprints/BP_CamShake.BP_CamShake_C'"));
 if (tempShake.Succeeded())
 {
 	cameraShake = tempShake.Class;
-}*/
+}
 }
 void UPlayerAttack::BeginPlay()
 {
@@ -89,9 +89,9 @@ void UPlayerAttack::SetupInputBinding(class UInputComponent* PlayerInputComponen
 void UPlayerAttack::InputFire()
 {
 	//카메라를 흔들자
-	/*APlayerController* controller = GetWorld()->GetFirstPlayerController();
+	APlayerController* controller = GetWorld()->GetFirstPlayerController();
 	controller->PlayerCameraManager->StopAllCameraShakes();
-	controller->PlayerCameraManager->StartCameraShake(cameraShake);*/
+	controller->PlayerCameraManager->StartCameraShake(cameraShake);
 	bFire = true;
 
 	//총 쏘는 애니메이션을 하자

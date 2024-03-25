@@ -40,6 +40,15 @@ ATpsPlayer::ATpsPlayer()
 	if (tempMesh.Succeeded())
 	{
 		GetMesh()->SetSkeletalMesh(tempMesh.Object);
+
+		ConstructorHelpers::FObjectFinder<UMaterialInterface> MatRef(TEXT("/Script/Engine.Material'/Game/Images/M_Cup.M_Cup'"));
+		if (MatRef.Object)
+		{
+			if (GetMesh()->GetMaterials().Num() > 0)
+			{
+				GetMesh()->SetMaterial(0, MatRef.Object);
+			}
+		}
 	}
 
 	//SkeletalMeshComponent ¼¼ÆÃ(Rifle)
